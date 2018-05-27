@@ -12,6 +12,29 @@ General Styles
 	display: flex;
 }
 
+h1 {
+	font-size: 2em;
+}
+
+footer {
+	margin-top: 15px;
+	text-align: center;
+}
+
+
+
+/*===========================
+Score Panel Styles
+===========================*/
+
+.score-panel {
+	align-items: center;
+	justify-content: center;
+	margin: 15px 0;
+}
+
+
+
 /*===========================
 Deck of Cards Styles
 ===========================*/
@@ -41,6 +64,18 @@ Deck of Cards Styles
 	display: none;
 	font-size: 3em;
 }
+
+.card:hover {
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
 
 
 
