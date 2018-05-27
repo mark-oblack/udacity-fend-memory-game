@@ -1,0 +1,46 @@
+/*===========================
+General Styles
+===========================*/
+
+.wrapper {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+/*===========================
+Deck of Cards Styles
+===========================*/
+
+.deck {
+	background: #0be881;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+	height: 660px;
+	width: 660px;
+}
+
+.card {
+	align-items: center;
+	background: #485460;
+	display: flex;
+	/*flex: 1;*/
+	justify-content: center;
+	margin: 15px;
+	height: 135px;
+	width: 135px;
+}
+
+.card .fas {
+	color: white;
+	display: none;
+	font-size: 3em;
+}
+
+
+
