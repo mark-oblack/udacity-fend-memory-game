@@ -1,3 +1,8 @@
+
+/*===================================
+General Styles
+===================================*/
+
 html {
     box-sizing: border-box;
 }
@@ -33,9 +38,9 @@ h1 {
     font-weight: 300;
 }
 
-/*
- * Styles for the deck of cards
- */
+/*===================================
+Deck of Cards Styles
+===================================*/
 
 .deck {
     width: 660px;
@@ -81,9 +86,9 @@ h1 {
     font-size: 33px;
 }
 
-/*
- * Styles for the Score Panel
- */
+/*===================================
+Score Panel Styles
+===================================*/
 
 .score-panel {
     text-align: left;
@@ -107,3 +112,10 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+
+
+
+
+
+
