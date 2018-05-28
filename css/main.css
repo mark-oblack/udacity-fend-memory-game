@@ -33,6 +33,10 @@ Score Panel Styles
 	margin: 15px 0;
 }
 
+.fa-star {
+	color: #f7b731;
+}
+
 .restart:hover {
 	cursor: pointer;
 }
