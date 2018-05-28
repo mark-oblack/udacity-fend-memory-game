@@ -33,14 +33,19 @@ Score Panel Styles
 	margin: 15px 0;
 }
 
+.restart:hover {
+	cursor: pointer;
+}
+
 
 
 /*===========================
 Deck of Cards Styles
 ===========================*/
 
-.deck {
+#card-deck {
 	background: #0be881;
+	border-radius: 15px;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 0 auto;
@@ -51,6 +56,7 @@ Deck of Cards Styles
 .card {
 	align-items: center;
 	background: #485460;
+	border-radius: 15px;
 	display: flex;
 	/*flex: 1;*/
 	justify-content: center;
@@ -68,6 +74,7 @@ Deck of Cards Styles
 .card:hover {
 	cursor: pointer;
 }
+
 
 
 

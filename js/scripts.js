@@ -11,19 +11,19 @@
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-// function shuffle(array) {
-//     var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
-//     while (currentIndex !== 0) {
-//         randomIndex = Math.floor(Math.random() * currentIndex);
-//         currentIndex -= 1;
-//         temporaryValue = array[currentIndex];
-//         array[currentIndex] = array[randomIndex];
-//         array[randomIndex] = temporaryValue;
-//     }
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
-//     return array;
-// }
+    return array;
+}
 
 
 /*
@@ -37,13 +37,31 @@
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-$(".card").click(function() {
+const card = document.getElementsByClassName("card");
+const cards = [...card];
+const deck = document.getElementById("card-deck");
+
+function startGame() {
+	let shuffledCards = shuffle(cards);
+	for (var i= 0; i < shuffledCards.length; i++){
+	    cards.forEach.call(shuffledCards, function(item){
+	    	deck.appendChild(item);
+	    });
+   }
+}
+
+function displayCard() {
 	$(this).children().css("display", "block");
-});
+	$(this).css("background", "#0abde3");
+}
+
+for (var i = 0; i < cards.length; i++) {
+	cards[i].addEventListener("click", displayCard);
+}
 
 
 
-
+ window.onload = startGame();
 
 
 
