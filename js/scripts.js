@@ -42,12 +42,18 @@ const cards = [...card];
 const deck = document.getElementById("card-deck");
 
 function startGame() {
+    $("#card-deck").children().css("background", "#485460");
+    $(".card").children().css("display", "none");
 	let shuffledCards = shuffle(cards);
 	for (var i= 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){
 	    	deck.appendChild(item);
 	    });
    }
+}
+
+function moveCounter() {
+    
 }
 
 function displayCard() {
