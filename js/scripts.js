@@ -44,6 +44,7 @@ let moves = document.getElementById("moves");
 let count = 0;
 
 function startGame() {
+    moves.innerHTML = 0;
     $("#card-deck").children().css("background", "#485460");
     $(".card").children().css("display", "none");
 	let shuffledCards = shuffle(cards);
@@ -58,10 +59,19 @@ function displayCard() {
 	$(this).children().css("display", "block");
 	$(this).css("background", "#0abde3");
     moves.innerHTML = count += 1;
+    if(count > 16 && count < 24) {
+        starRating();
+    } else if (count > 24) {
+        starRating();
+    } 
 }
 
 function starRating() {
-    for(var i = 0)
+    if(count > 16 && count < 24) {
+        $(".stars li:nth-child(1)").css("display", "none");
+    } else if (count > 24) {
+        $(".stars li:nth-child(2)").css("display", "none");
+    } 
 }
 
 
