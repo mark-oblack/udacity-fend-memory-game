@@ -40,6 +40,8 @@ function shuffle(array) {
 const card = document.getElementsByClassName("card");
 const cards = [...card];
 const deck = document.getElementById("card-deck");
+let moves = document.getElementById("moves");
+let count = 0;
 
 function startGame() {
     $("#card-deck").children().css("background", "#485460");
@@ -52,14 +54,16 @@ function startGame() {
    }
 }
 
-function moveCounter() {
-    
-}
-
 function displayCard() {
 	$(this).children().css("display", "block");
 	$(this).css("background", "#0abde3");
+    moves.innerHTML = count += 1;
 }
+
+function starRating() {
+    for(var i = 0)
+}
+
 
 for (var i = 0; i < cards.length; i++) {
 	cards[i].addEventListener("click", displayCard);
