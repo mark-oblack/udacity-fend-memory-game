@@ -40,8 +40,9 @@ function shuffle(array) {
 const card = document.getElementsByClassName("card");
 const cards = [...card];
 const deck = document.getElementById("card-deck");
-let moves = document.getElementById("moves");
+let moves = document.querySelector(".moves");
 let count = 0;
+let openCards = [];
 
 function startGame() {
     moves.innerHTML = 0;
@@ -74,9 +75,25 @@ function starRating() {
     } 
 }
 
+function cardOpen() {
+    openCards.push(this);
+    let length = openCards.length;
+    if(length === 2) {
+        if(openCards[0].type === openCards[1].type) {
+            console.log("match");
+            openCards=[];
+        } else {
+            console.log("no match");
+            openCards=[];
+        }
+
+    }
+}
+
 
 for (var i = 0; i < cards.length; i++) {
 	cards[i].addEventListener("click", displayCard);
+    cards[i].addEventListener("click", cardOpen);
 }
 
 
