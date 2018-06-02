@@ -1,14 +1,3 @@
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -43,8 +32,12 @@ const deck = document.getElementById("card-deck");
 let moves = document.querySelector(".moves");
 let count = 0;
 let openCards = [];
+let isClicked;
 
 function startGame() {
+    isClicked = false;
+    clickEvents();
+    count = 0;
     moves.innerHTML = 0;
     $("#card-deck").children().css("background", "#485460");
     $(".card").children().css("display", "none");
@@ -78,6 +71,8 @@ function starRating() {
 function matched() {
     for(var i = 0; i < openCards.length; i++) {
         openCards[i].style.backgroundColor = "#0be881";
+        isClicked = true;
+        clickEvents();
     }
 }
 
@@ -104,10 +99,18 @@ function cardOpen() {
     }
 }
 
+function clickEvents() {
+    for(var i = 0; i < cards.length; i++) {
+        if(isClicked === true) {
+            cards[i].removeEventListener("click", displayCard);
+            cards[i].removeEventListener("click", cardOpen);
 
-for (var i = 0; i < cards.length; i++) {
-	cards[i].addEventListener("click", displayCard);
-    cards[i].addEventListener("click", cardOpen);
+        } else {
+            cards[i].addEventListener("click", displayCard);
+            cards[i].addEventListener("click", cardOpen);
+        }
+    }
+
 }
 
  window.onload = startGame();
