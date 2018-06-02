@@ -75,15 +75,29 @@ function starRating() {
     } 
 }
 
+function matched() {
+    for(var i = 0; i < openCards.length; i++) {
+        openCards[i].style.backgroundColor = "#0be881";
+    }
+}
+
+function unmatched() {
+    for(var i = 0; i < openCards.length; i++) {
+        openCards[i].style.backgroundColor = "#ff3838";
+    }
+}
+
 function cardOpen() {
     openCards.push(this);
     let length = openCards.length;
     if(length === 2) {
         if(openCards[0].type === openCards[1].type) {
             console.log("match");
+            matched();
             openCards=[];
         } else {
             console.log("no match");
+            unmatched();
             openCards=[];
         }
 
@@ -95,8 +109,6 @@ for (var i = 0; i < cards.length; i++) {
 	cards[i].addEventListener("click", displayCard);
     cards[i].addEventListener("click", cardOpen);
 }
-
-
 
  window.onload = startGame();
 
