@@ -82,6 +82,10 @@ Deck of Cards Styles
 	cursor: pointer;
 }
 
+.unmatched {
+	display: none;
+}
+
 
 
 

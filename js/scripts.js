@@ -37,6 +37,8 @@ function startGame() {
    }
 }
 
+document.body.onload = startGame();
+
 function displayCard() {
 	$(this).children().css("display", "block");
 	$(this).css("background", "#0abde3");
@@ -62,13 +64,19 @@ function matched() {
         openCards[i].removeEventListener("click", displayCard);
         openCards[i].removeEventListener("click", cardOpen);
     }
+    openCards=[];
 }
 
 function unmatched() {
     for(var i = 0; i < openCards.length; i++) {
-        openCards[i].style.backgroundColor = "#485460";
+        openCards[i].style.backgroundColor = "#ff3838";
         // openCards[i].classList.add("unmatched");
     }
+    setTimeout(function() {
+        openCards[0].style.backgroundColor = "#485460";
+        openCards[1].style.backgroundColor = "#485460";
+        openCards=[];
+    }, 1100);
 }
 
 function cardOpen() {
@@ -78,11 +86,9 @@ function cardOpen() {
         if(openCards[0].type === openCards[1].type) {
             console.log("match");
             matched();
-            openCards=[];
         } else {
             console.log("no match");
             unmatched();
-            openCards=[];
         }
 
     }
@@ -102,8 +108,6 @@ function clickEvents() {
 
 }
 
- window.onload = startGame();
- window.onload = clickEvents();
 
 
 
