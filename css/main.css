@@ -82,7 +82,11 @@ Deck of Cards Styles
 	cursor: pointer;
 }
 
-.unmatched {
+.open {
+	display: block;
+}
+
+.unopen {
 	display: none;
 }
 
