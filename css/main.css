@@ -47,8 +47,7 @@ Score Panel Styles
 Deck of Cards Styles
 ===========================*/
 
-#card-deck {
-	/*background: #0be881;*/
+.deck {
 	background-color: #21D4FD;
 	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
 	border-radius: 15px;
@@ -64,7 +63,9 @@ Deck of Cards Styles
 	align-items: center;
 	background: #485460;
 	border-radius: 15px;
+	color: white;
 	display: flex;
+	font-size: 0em;
 	/*flex: 1;*/
 	justify-content: center;
 	margin: 15px;
@@ -72,23 +73,45 @@ Deck of Cards Styles
 	width: 135px;
 }
 
-.card .fas {
+/*.card .fas {
 	color: white;
 	display: none;
-	font-size: 3em;
-}
+	font-size: 0;
+}*/
 
 .card:hover {
 	cursor: pointer;
 }
 
 .open {
-	display: block;
+	background: #0abde3;
+	font-size: 3em;
 }
 
 .unopen {
+	background: #485460;
+	font-size: 0em;
+}
+
+.card .fas .unopen {
 	display: none;
 }
+
+.unmatched {
+	background: #ff3838;
+}
+
+.matched {
+	background: #0be881;
+}
+
+.fas.unopen {
+	display: none;
+}
+
+/*.deck .unopen {
+	display: none;
+}*/
 
 
 
