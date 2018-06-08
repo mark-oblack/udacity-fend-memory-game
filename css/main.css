@@ -63,9 +63,9 @@ Deck of Cards Styles
 	align-items: center;
 	background: #485460;
 	border-radius: 15px;
-	color: white;
+	color: #485460;
 	display: flex;
-	font-size: 0em;
+	font-size: 3em;
 	/*flex: 1;*/
 	justify-content: center;
 	margin: 15px;
@@ -73,24 +73,18 @@ Deck of Cards Styles
 	width: 135px;
 }
 
-/*.card .fas {
-	color: white;
-	display: none;
-	font-size: 0;
-}*/
-
 .card:hover {
 	cursor: pointer;
 }
 
 .open {
 	background: #0abde3;
-	font-size: 3em;
+	color: #fff;
 }
 
 .unopen {
 	background: #485460;
-	font-size: 0em;
+	color: #485460;
 }
 
 .card .fas .unopen {
@@ -103,15 +97,12 @@ Deck of Cards Styles
 
 .matched {
 	background: #0be881;
+	color: #fff;
 }
 
 .fas.unopen {
 	display: none;
 }
-
-/*.deck .unopen {
-	display: none;
-}*/
 
 
 

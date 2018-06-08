@@ -1,6 +1,8 @@
 
 let card = document.getElementsByClassName("card");
 const cards = [...card];
+let star = document.getElementsByClassName("fa-star");
+const stars = [...star];
 const deck = document.querySelector(".deck");
 let moves = document.querySelector(".moves");
 let count = 0;
@@ -23,18 +25,19 @@ function shuffle(array) {
 }
 
 function startGame() {
-    clickEvents();
-    count = 0;
-    moves.innerHTML = count;
-    // $("#card-deck").children().css("background", "#485460");
-    // $(".card").children().css("display", "none");
-    // cards.classList.remove("unopen");
 	let shuffledCards = shuffle(cards);
-	for (var i= 0; i < shuffledCards.length; i++){
+	for (var i = 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){
 	    	deck.appendChild(item);
 	    });
-   }
+    }
+    count = 0;
+    moves.innerHTML = count;
+    for (var i = 0; i < stars.length; i++) {
+        stars[i].style.display = "block";
+    }
+    clickEvents();
+
 }
 
 document.body.onload = startGame();
@@ -42,7 +45,6 @@ document.body.onload = startGame();
 function displayCard() {
     this.classList.remove("unopen");
 	this.classList.add("open");
- //    $(this).children().css("display", "block");
     moves.innerHTML = count += 1;
     if(count > 16 && count < 24) {
         starRating();
@@ -68,9 +70,9 @@ function cardOpen() {
 
 function starRating() {
     if(count > 16 && count < 24) {
-        $(".stars li:nth-child(1)").css("display", "none");
+        stars[0].style.display = "none";
     } else if (count > 24) {
-        $(".stars li:nth-child(2)").css("display", "none");
+        stars[1].style.display = "none";
     } 
 }
 
@@ -104,8 +106,6 @@ function clickEvents() {
     }
 
 }
-
-// deck.classList.add("unopen");
 
 
 
