@@ -34,6 +34,9 @@ function startGame() {
     for (var i = 0; i < stars.length; i++) {
         stars[i].style.display = "block";
     }
+    for (var i =0; i < cards.length; i++) {
+        cards[i].classList.remove("open", "matched", "disabled");
+    }
     clickEvents();
 
 }
@@ -48,11 +51,7 @@ function displayCard() {
     if (count % 2 === 0) {
         moves.innerHTML = count/2;
     }
-    if(count > 16 && count < 24) {
-        starRating();
-    } else if (count > 24) {
-        starRating();
-    } 
+    starRating();
 }
 
 function cardOpen() {
@@ -70,10 +69,11 @@ function cardOpen() {
     }
 }
 
+//operates off of count value, so 0-8 moves is 3 stars; 9-13 moves is 2 stars; 14 or more moves is 1 star
 function starRating() {
-    if(count > 16 && count < 24) {
+    if(count >= 18 && count <= 26) {
         stars[0].style.display = "none";
-    } else if (count > 24) {
+    } else if (count >= 28) {
         stars[1].style.display = "none";
     } 
 }
