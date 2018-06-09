@@ -8,6 +8,7 @@ let moves = document.querySelector(".moves");
 let count = 0;
 let openCards = [];
 let isClicked;
+let matchedTotal = 0;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -71,9 +72,9 @@ function cardOpen() {
 
 //operates off of count value, so 0-8 moves is 3 stars; 9-13 moves is 2 stars; 14 or more moves is 1 star
 function starRating() {
-    if(count >= 18 && count <= 26) {
+    if(count >= 20 && count <= 28) {
         stars[0].style.display = "none";
-    } else if (count >= 28) {
+    } else if (count >= 30) {
         stars[1].style.display = "none";
     } 
 }
@@ -86,6 +87,12 @@ function matched() {
         openCards[i].removeEventListener("click", cardOpen);
     }
     openCards=[];
+    matchedTotal += 1;
+    if (matchedTotal === 8) {
+        setTimeout(function () {
+            alert("Congratulations, you won!");
+        }, 1100);
+    }
 }
 
 function unmatched() {
