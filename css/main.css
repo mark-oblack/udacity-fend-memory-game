@@ -100,8 +100,8 @@ Deck of Cards Styles
 	color: #fff;
 }
 
-.fas.unopen {
-	display: none;
+.disabled {
+	pointer-events: none;
 }
 
 

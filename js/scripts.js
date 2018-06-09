@@ -12,7 +12,6 @@ let isClicked;
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -20,7 +19,6 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
@@ -44,8 +42,12 @@ document.body.onload = startGame();
 
 function displayCard() {
     this.classList.remove("unopen");
-	this.classList.add("open");
-    moves.innerHTML = count += 1;
+	this.classList.add("open", "disabled");
+    count += 1;
+    //counts every 2 card clicks as 1 move and then writes move to HTML
+    if (count % 2 === 0) {
+        moves.innerHTML = count/2;
+    }
     if(count > 16 && count < 24) {
         starRating();
     } else if (count > 24) {
@@ -78,7 +80,7 @@ function starRating() {
 
 function matched() {
     for(var i = 0; i < openCards.length; i++) {
-        openCards[i].classList.add("matched");
+        openCards[i].classList.add("matched", "disabled");
         openCards[i].classList.remove("open");
         openCards[i].removeEventListener("click", displayCard);
         openCards[i].removeEventListener("click", cardOpen);
@@ -91,10 +93,10 @@ function unmatched() {
         openCards[i].classList.add("unmatched");
     }
     setTimeout(function() {
-        openCards[0].classList.remove("unmatched");
-        openCards[0].classList.add("unopen");
-        openCards[1].classList.remove("unmatched");
-        openCards[1].classList.add("unopen");
+        for (var i = 0; i < openCards.length; i++) {
+            openCards[i].classList.remove("unmatched", "disabled");
+            openCards[i].classList.add("unopen");
+        }
         openCards=[];
     }, 1100);
 }
