@@ -7,8 +7,11 @@ const deck = document.querySelector(".deck");
 let moves = document.querySelector(".moves");
 let count = 0;
 let openCards = [];
-let isClicked;
 let matchedTotal = 0;
+let stopwatch = document.querySelector(".stopwatch");
+let minutes = 0;
+let seconds = 0;
+let time;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -39,6 +42,7 @@ function startGame() {
         cards[i].classList.remove("open", "matched", "disabled");
     }
     clickEvents();
+    startTimer();
 
 }
 
@@ -92,6 +96,7 @@ function matched() {
         setTimeout(function () {
             alert("Congratulations, you won!");
         }, 1100);
+        stopTimer();
     }
 }
 
@@ -114,6 +119,22 @@ function clickEvents() {
         cards[i].addEventListener("click", cardOpen);
     }
 
+}
+
+function startTimer() {
+    time = setInterval(function() {
+        stopwatch.innerHTML = minutes + "mins " + seconds + "secs";
+        seconds++;
+        if(seconds === 60) {
+            minutes ++;
+            seconds = 0;
+        }   
+    }, 1000);
+}
+
+function stopTimer() {
+    time = timer.innerHTML;
+    clearInterval(time);
 }
 
 
