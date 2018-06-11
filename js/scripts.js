@@ -1,17 +1,24 @@
 
 let card = document.getElementsByClassName("card");
 const cards = [...card];
+const deck = document.querySelector(".deck");
+
 let star = document.getElementsByClassName("fa-star");
 const stars = [...star];
-const deck = document.querySelector(".deck");
+
 let moves = document.querySelector(".moves");
 let count = 0;
+
 let openCards = [];
 let matchedTotal = 0;
+
 let stopwatch = document.querySelector(".stopwatch");
 let minutes = 0;
 let seconds = 0;
 let time;
+let finishTime;
+
+let congratsPopup = document.querySelector(".popup");
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -74,21 +81,22 @@ function cardOpen() {
     }
 }
 
-//operates off of count value, so 0-8 moves is 3 stars; 9-13 moves is 2 stars; 14 or more moves is 1 star
+//operates off of count value, so 0-10 moves is 3 stars; 11-15 moves is 2 stars; 16 or more moves is 1 star
 function starRating() {
-    if(count >= 20 && count <= 28) {
+    if(count >= 22 && count <= 30) {
         stars[0].style.display = "none";
-    } else if (count >= 30) {
+    } else if (count >= 32) {
         stars[1].style.display = "none";
     } 
 }
 
 function congratulations() {
     if (matchedTotal === 8) {
-        setTimeout(function () {
-            alert("Congratulations, you won!");
-        }, 1100);
+        // setTimeout(function () {
+        //     alert("Congratulations, you won!");
+        // }, 1100);
         stopTimer();
+        congratsPopup.classList.add("show");
     }
 }
 
@@ -137,8 +145,9 @@ function startTimer() {
 }
 
 function stopTimer() {
-    time = stopwatch.innerHTML;
-    console.log(time);
+    finishTime = stopwatch.innerHTML;
+    console.log(finishTime);
+    //clearInterval stops the time interval
     clearInterval(time);
 }
 
