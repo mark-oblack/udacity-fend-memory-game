@@ -83,6 +83,15 @@ function starRating() {
     } 
 }
 
+function congratulations() {
+    if (matchedTotal === 8) {
+        setTimeout(function () {
+            alert("Congratulations, you won!");
+        }, 1100);
+        stopTimer();
+    }
+}
+
 function matched() {
     for(var i = 0; i < openCards.length; i++) {
         openCards[i].classList.add("matched", "disabled");
@@ -92,12 +101,7 @@ function matched() {
     }
     openCards=[];
     matchedTotal += 1;
-    if (matchedTotal === 8) {
-        setTimeout(function () {
-            alert("Congratulations, you won!");
-        }, 1100);
-        stopTimer();
-    }
+    congratulations();
 }
 
 function unmatched() {
@@ -123,7 +127,7 @@ function clickEvents() {
 
 function startTimer() {
     time = setInterval(function() {
-        stopwatch.innerHTML = minutes + "mins " + seconds + "secs";
+        stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
         seconds++;
         if(seconds === 60) {
             minutes ++;
@@ -133,7 +137,8 @@ function startTimer() {
 }
 
 function stopTimer() {
-    time = timer.innerHTML;
+    time = stopwatch.innerHTML;
+    console.log(time);
     clearInterval(time);
 }
 
