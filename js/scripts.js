@@ -13,8 +13,8 @@ let openCards = [];
 let matchedTotal = 0;
 
 let stopwatch = document.querySelector(".stopwatch");
-let minutes = 0;
-let seconds = 0;
+let minutes;
+let seconds;
 let time;
 let finishTime;
 
@@ -50,7 +50,6 @@ function startGame() {
     }
     clickEvents();
     startTimer();
-
 }
 
 document.body.onload = startGame();
@@ -134,6 +133,8 @@ function clickEvents() {
 }
 
 function startTimer() {
+    seconds = 0;
+    minutes = 0;
     time = setInterval(function() {
         stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
         seconds++;
