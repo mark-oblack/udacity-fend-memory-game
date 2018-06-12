@@ -4,10 +4,13 @@ const cards = [...card];
 const deck = document.querySelector(".deck");
 
 let star = document.getElementsByClassName("fa-star");
+let currentStars = 3;
+let totalStars = document.querySelector(".totalStars");
 const stars = [...star];
 
-let moves = document.querySelector(".moves");
 let count = 0;
+let moves = document.querySelector(".moves");
+let totalMoves = document.querySelector(".totalMoves");
 
 let openCards = [];
 let matchedTotal = 0;
@@ -17,6 +20,7 @@ let minutes;
 let seconds;
 let time;
 let finishTime;
+let totalTime = document.querySelector(".totalTime");
 
 let congratsPopup = document.querySelector(".popup");
 
@@ -34,6 +38,8 @@ function shuffle(array) {
 }
 
 function startGame() {
+    congratsPopup.classList.remove("show");
+    congratsPopup.classList.add("hide");
 	let shuffledCards = shuffle(cards);
 	for (var i = 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){
@@ -41,7 +47,7 @@ function startGame() {
 	    });
     }
     count = 0;
-    moves.innerHTML = count;
+    moves.innerHTML = count + " moves";
     for (var i = 0; i < stars.length; i++) {
         stars[i].style.display = "block";
     }
@@ -60,7 +66,7 @@ function displayCard() {
     count += 1;
     //counts every 2 card clicks as 1 move and then writes move to HTML
     if (count % 2 === 0) {
-        moves.innerHTML = count/2;
+        moves.innerHTML = count/2 + " moves";
     }
     starRating();
 }
@@ -84,8 +90,10 @@ function cardOpen() {
 function starRating() {
     if(count >= 22 && count <= 30) {
         stars[0].style.display = "none";
+        currentStars = 2;
     } else if (count >= 32) {
         stars[1].style.display = "none";
+        currentStars = 1;
     } 
 }
 
@@ -95,7 +103,11 @@ function congratulations() {
         //     alert("Congratulations, you won!");
         // }, 1100);
         stopTimer();
+        congratsPopup.classList.remove("hide");
         congratsPopup.classList.add("show");
+        totalMoves.innerHTML = "You finished in " + count/2 + " moves!";
+        totalTime.innerHTML = "Your completion time was " + finishTime + "!";
+        totalStars.innerHTML = "You earned " + currentStars + " stars!";
     }
 }
 

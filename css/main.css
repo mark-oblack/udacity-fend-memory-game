@@ -17,7 +17,7 @@ h1 {
 }
 
 body {
-	background: #dfe6e9;
+	background: #ecf0f1;
 }
 
 footer {
@@ -115,8 +115,7 @@ Congrats Popup Styles
 ===========================*/
 
 .popup {
-	background-color: #dfe6e9;
-	/*display: none;*/
+	background-color: #ecf0f1;
 }
 
 .show {
@@ -132,6 +131,9 @@ Congrats Popup Styles
 	z-index: 100;
 }
 
+.hide {
+	display: none;
+}
 
 
 
