@@ -46,6 +46,7 @@ function startGame() {
 	    	deck.appendChild(item);
 	    });
     }
+    matchedTotal = 0;
     count = 0;
     moves.innerHTML = count + " moves";
     for (var i = 0; i < stars.length; i++) {
