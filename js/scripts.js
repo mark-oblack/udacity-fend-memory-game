@@ -1,4 +1,6 @@
 
+//The following GitHub repository was used as a resource for the JS code: https://github.com/sandraisrael/Memory-Game-fend
+
 let card = document.getElementsByClassName("card");
 const cards = [...card];
 const deck = document.querySelector(".deck");
@@ -39,8 +41,8 @@ function shuffle(array) {
 }
 
 function startGame() {
-    // congratsPopup.classList.remove("show");
-    // congratsPopup.classList.add("hide");
+    congratsPopup.classList.remove("show");
+    congratsPopup.classList.add("hide");
     overlay.classList.remove("show");
     overlay.classList.add("hide");
 	let shuffledCards = shuffle(cards);
@@ -59,7 +61,7 @@ function startGame() {
         cards[i].classList.remove("open", "matched", "disabled");
     }
     clickEvents();
-    // startTimer();
+    startTimer();
 }
 
 document.body.onload = startGame();
@@ -90,12 +92,12 @@ function cardOpen() {
     }
 }
 
-//operates off of count value, so 0-10 moves is 3 stars; 11-15 moves is 2 stars; 16 or more moves is 1 star
+//operates off of count value, so 0-12 moves is 3 stars; 13-18 moves is 2 stars; 19 or more moves is 1 star
 function starRating() {
-    if(count >= 22 && count <= 30) {
+    if(count >= 26 && count <= 36) {
         stars[0].style.display = "none";
         currentStars = 2;
-    } else if (count >= 32) {
+    } else if (count >= 38) {
         stars[1].style.display = "none";
         currentStars = 1;
     } 
@@ -103,17 +105,14 @@ function starRating() {
 
 function congratulations() {
     if (matchedTotal === 8) {
-        // setTimeout(function () {
-        //     alert("Congratulations, you won!");
-        // }, 1100);
         stopTimer();
         congratsPopup.classList.remove("hide");
         congratsPopup.classList.add("show");
         overlay.classList.remove("hide");
         overlay.classList.add("show");
-        totalMoves.innerHTML = "You finished in " + count/2 + " moves!";
-        totalTime.innerHTML = "Your completion time was " + finishTime + "!";
-        totalStars.innerHTML = "You earned " + currentStars + " stars!";
+        totalMoves.innerHTML = count/2;
+        totalTime.innerHTML = finishTime;
+        totalStars.innerHTML = currentStars;
     }
 }
 

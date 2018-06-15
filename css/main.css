@@ -1,23 +1,37 @@
 /*===========================
+Google Fonts
+===========================*/
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+
+
+
+/*===========================
 General Styles
 ===========================*/
 
+body, html {
+	background: #ecf0f1;
+	color: #485460;
+	font-family: 'Nunito', sans-serif;
+	height: 100vh;
+	min-height: 100%;
+}
+
 .wrapper {
-	display: block;
-	margin: 0 auto;
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 36px);
 }
 
 .flex {
 	display: flex;
 }
 
-h1 {
+header > h1 {
 	font-size: 2em;
-}
-
-body {
-	background: #ecf0f1;
+	font-weight: 700;
 }
 
 footer {
@@ -35,6 +49,11 @@ Score Panel Styles
 	align-items: center;
 	justify-content: center;
 	margin: 15px 0;
+}
+
+.score-panel > ul,
+.score-panel > div {
+	padding: 0 15px;
 }
 
 .fa-star {
@@ -67,6 +86,7 @@ Deck of Cards Styles
 	align-items: center;
 	background: #485460;
 	border-radius: 15px;
+	box-shadow: 0px 5px 10px rgba(75,75,75,0.15);
 	color: #485460;
 	display: flex;
 	font-size: 3em;
@@ -117,9 +137,11 @@ Congrats Popup Styles
 .popup {
 	align-items: center;
 	background-color: #ecf0f1;
+	border-radius: 25px;
 	flex-direction: column;
 	height: 400px;
 	justify-content: center;
+	line-height: 2em;
 	margin: 0 auto;
 	position: absolute;
 	width: 400px;
@@ -127,7 +149,6 @@ Congrats Popup Styles
 	left: 0;
 	right: 0;
 	margin: auto;
-	margin-top: -550px;
 }
 
 .overlay {
@@ -135,8 +156,8 @@ Congrats Popup Styles
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	height: 100%;
-	opacity: 0.5;
+	min-height: calc(100vh + 36px);
+	opacity: 0.7;
 	position: absolute;
 	width: 100%;
 }
@@ -149,6 +170,36 @@ Congrats Popup Styles
 	display: none;
 }
 
+.popup > h1 {
+	font-size: 1.5em;
+	font-weight: 700;
+	margin-bottom: 0.75em;
+}
+
+.popup > input {
+	background-color: #21D4FD;
+	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(75,75,75,0.15);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.25em;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 5px;
+    width: 6em;
+}
+
+.popup > input:hover {
+	opacity: 0.85;
+}
+
+.results {
+	font-weight: 700;
+}
 
 
 
