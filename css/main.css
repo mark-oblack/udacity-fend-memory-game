@@ -115,20 +115,34 @@ Congrats Popup Styles
 ===========================*/
 
 .popup {
+	align-items: center;
 	background-color: #ecf0f1;
+	flex-direction: column;
+	height: 400px;
+	justify-content: center;
+	margin: 0 auto;
+	position: absolute;
+	width: 400px;
+	z-index: 100;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: -550px;
+}
+
+.overlay {
+	background: #485460;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
 }
 
 .show {
-	align-items: center;
 	display: flex;
-	flex-direction: column;
-	height: 50%;
-	justify-content: center;
-	left: 25%;
-	position: absolute;
-	top: 25%;
-	width: 50%;
-	z-index: 100;
 }
 
 .hide {

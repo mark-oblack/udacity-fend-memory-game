@@ -23,6 +23,7 @@ let finishTime;
 let totalTime = document.querySelector(".totalTime");
 
 let congratsPopup = document.querySelector(".popup");
+let overlay = document.querySelector(".overlay");
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -38,8 +39,10 @@ function shuffle(array) {
 }
 
 function startGame() {
-    congratsPopup.classList.remove("show");
-    congratsPopup.classList.add("hide");
+    // congratsPopup.classList.remove("show");
+    // congratsPopup.classList.add("hide");
+    overlay.classList.remove("show");
+    overlay.classList.add("hide");
 	let shuffledCards = shuffle(cards);
 	for (var i = 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){
@@ -56,7 +59,7 @@ function startGame() {
         cards[i].classList.remove("open", "matched", "disabled");
     }
     clickEvents();
-    startTimer();
+    // startTimer();
 }
 
 document.body.onload = startGame();
@@ -106,6 +109,8 @@ function congratulations() {
         stopTimer();
         congratsPopup.classList.remove("hide");
         congratsPopup.classList.add("show");
+        overlay.classList.remove("hide");
+        overlay.classList.add("show");
         totalMoves.innerHTML = "You finished in " + count/2 + " moves!";
         totalTime.innerHTML = "Your completion time was " + finishTime + "!";
         totalStars.innerHTML = "You earned " + currentStars + " stars!";
