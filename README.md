@@ -7,7 +7,7 @@ This matching game tests a user's memory as they try to match each set of cards 
 ## Challenge
 There's more to the game than just matching the cards! When playing, a user is timed and receives a star rating based on the number of moves they took to match all the cards.
 
-##How to Play
+## How to Play
 * Visit https://www.markoblack.com/udacity-fend-memory-game/
 * Click on a card
 * Click on another card
@@ -15,7 +15,7 @@ There's more to the game than just matching the cards! When playing, a user is t
 * If the cards do not match, they will briefly turn red and then flip over
 * Repeat until all cards are matched!
 
-##How I Built the Memory Game
+## How I Built the Memory Game
 I took some inspiration from the following repository on GitHub: https://github.com/sandraisrael/Memory-Game-fend
 * This web app uses pure Vanilla JS for functionality
 * Card flips are completed by removing/adding CSS classes to each card
