@@ -2,7 +2,7 @@
 
 ## Description
 This matching game tests a user's memory as they try to match each set of cards in the deck.
-![snippet](img/snippet.png)
+![snippet](udacity-files/img/snippet.png)
 
 ## Challenge
 There's more to the game than just matching the cards! When playing, a user is timed and receives a star rating based on the number of moves they took to match all the cards.
