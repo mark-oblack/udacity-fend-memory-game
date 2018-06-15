@@ -41,10 +41,10 @@ function shuffle(array) {
 }
 
 function startGame() {
-    congratsPopup.classList.remove("show");
-    congratsPopup.classList.add("hide");
-    overlay.classList.remove("show");
-    overlay.classList.add("hide");
+    // congratsPopup.classList.remove("show");
+    // congratsPopup.classList.add("hide");
+    // overlay.classList.remove("show");
+    // overlay.classList.add("hide");
 	let shuffledCards = shuffle(cards);
 	for (var i = 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){

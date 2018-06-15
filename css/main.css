@@ -75,7 +75,8 @@ Deck of Cards Styles
 .deck {
 	background-color: #21D4FD;
 	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-	border-radius: 15px;
+	/*border-radius: 15px;*/
+	border-radius: 10px;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 0 auto;
@@ -91,7 +92,7 @@ Deck of Cards Styles
 	align-items: center;
 	background: #485460;
 	/*border-radius: 15px;*/
-	border-radius: 10px;
+	border-radius: 8px;
 	box-shadow: 0px 5px 10px rgba(75,75,75,0.15);
 	color: #485460;
 	display: flex;
@@ -147,13 +148,15 @@ Congrats Popup Styles
 .popup {
 	align-items: center;
 	background-color: #ecf0f1;
-	border-radius: 25px;
+	border-radius: 10px;
 	flex-direction: column;
-	height: 400px;
+	/*height: 400px;*/
+	height: 300px;
 	justify-content: center;
 	line-height: 2em;
 	position: absolute;
-	width: 400px;
+	/*width: 400px;*/
+	width: 300px;
 	z-index: 100;
 	left: 0; 
 	right: 0;
@@ -231,6 +234,7 @@ Responsive Styles
 	}
 
 	.deck {
+		border-radius: 25px;
 		padding: 15px;
 		height: 660px;
 		width: 660px;
@@ -243,6 +247,12 @@ Responsive Styles
 		height: 135px;
 		width: 135px;
 	
+	}
+
+	.popup {
+		border-radius: 25px;
+		height: 400px;
+		width: 400px;
 	}
 }
 
