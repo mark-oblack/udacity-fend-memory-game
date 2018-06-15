@@ -142,24 +142,27 @@ Congrats Popup Styles
 	height: 400px;
 	justify-content: center;
 	line-height: 2em;
-	margin: 0 auto;
 	position: absolute;
 	width: 400px;
 	z-index: 100;
-	left: 0;
+	left: 0; 
 	right: 0;
+	top: 0;
+	bottom: 0;
 	margin: auto;
 }
 
 .overlay {
 	background: #485460;
-	align-items: center;
+/*	align-items: center;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: center;*/
+	margin: 0 auto;
 	min-height: calc(100vh + 36px);
 	opacity: 0.7;
 	position: absolute;
 	width: 100%;
+	z-index: 99;
 }
 
 .show {
