@@ -14,7 +14,7 @@ let count = 0;
 let moves = document.querySelector(".moves");
 let totalMoves = document.querySelector(".totalMoves");
 
-let openCards = [];
+let openCards;
 let matchedTotal = 0;
 
 let stopwatch = document.querySelector(".stopwatch");
@@ -51,6 +51,7 @@ function startGame() {
 	    	deck.appendChild(item);
 	    });
     }
+    openCards = [];
     matchedTotal = 0;
     count = 0;
     moves.innerHTML = count + " moves";
@@ -61,6 +62,7 @@ function startGame() {
         cards[i].classList.remove("open", "matched", "disabled");
     }
     clickEvents();
+    clearInterval(time);
     startTimer();
 }
 
