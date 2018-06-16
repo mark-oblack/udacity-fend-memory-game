@@ -10,7 +10,7 @@ let currentStars = 3;
 let totalStars = document.querySelector(".totalStars");
 const stars = [...star];
 
-let count = 0;
+let count;
 let moves = document.querySelector(".moves");
 let totalMoves = document.querySelector(".totalMoves");
 
@@ -40,11 +40,24 @@ function shuffle(array) {
     return array;
 }
 
+function disable() {
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.add("disabled");
+    }
+}
+
+function enable() {
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("disabled");
+    }
+}
+
 function startGame() {
     congratsPopup.classList.remove("show");
     congratsPopup.classList.add("hide");
     overlay.classList.remove("show");
     overlay.classList.add("hide");
+    enable();
 	let shuffledCards = shuffle(cards);
 	for (var i = 0; i < shuffledCards.length; i++){
 	    cards.forEach.call(shuffledCards, function(item){
@@ -72,6 +85,7 @@ function displayCard() {
     this.classList.remove("unopen");
 	this.classList.add("open", "disabled");
     count += 1;
+    console.log(count);
     //counts every 2 card clicks as 1 move and then writes move to HTML
     if (count % 2 === 0) {
         moves.innerHTML = count/2 + " moves";
@@ -83,6 +97,7 @@ function cardOpen() {
     openCards.push(this);
     let length = openCards.length;
     if(length === 2) {
+        disable();
         if(openCards[0].type === openCards[1].type) {
             console.log("match");
             matched();
@@ -125,6 +140,7 @@ function matched() {
         openCards[i].removeEventListener("click", displayCard);
         openCards[i].removeEventListener("click", cardOpen);
     }
+    enable();
     openCards=[];
     matchedTotal += 1;
     congratulations();
@@ -140,6 +156,7 @@ function unmatched() {
             openCards[i].classList.add("unopen");
         }
         openCards=[];
+        enable();
     }, 1100);
 }
 
