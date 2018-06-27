@@ -52,6 +52,27 @@ function enable() {
     }
 }
 
+function clickEvents() {
+    for(var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("click", displayCard);
+        cards[i].addEventListener("click", cardOpen);
+    }
+
+}
+
+function startTimer() {
+    seconds = 0;
+    minutes = 0;
+    time = setInterval(function() {
+        stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
+        seconds++;
+        if(seconds === 60) {
+            minutes ++;
+            seconds = 0;
+        }   
+    }, 1000);
+}
+
 function startGame() {
     congratsPopup.classList.remove("show");
     congratsPopup.classList.add("hide");
@@ -77,27 +98,6 @@ function startGame() {
     clickEvents();
     clearInterval(time);
     startTimer();
-}
-
-function clickEvents() {
-    for(var i = 0; i < cards.length; i++) {
-        cards[i].addEventListener("click", displayCard);
-        cards[i].addEventListener("click", cardOpen);
-    }
-
-}
-
-function startTimer() {
-    seconds = 0;
-    minutes = 0;
-    time = setInterval(function() {
-        stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
-        seconds++;
-        if(seconds === 60) {
-            minutes ++;
-            seconds = 0;
-        }   
-    }, 1000);
 }
 
 document.body.onload = startGame();
