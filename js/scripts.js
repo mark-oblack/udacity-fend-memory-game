@@ -79,6 +79,27 @@ function startGame() {
     startTimer();
 }
 
+function clickEvents() {
+    for(var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("click", displayCard);
+        cards[i].addEventListener("click", cardOpen);
+    }
+
+}
+
+function startTimer() {
+    seconds = 0;
+    minutes = 0;
+    time = setInterval(function() {
+        stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
+        seconds++;
+        if(seconds === 60) {
+            minutes ++;
+            seconds = 0;
+        }   
+    }, 1000);
+}
+
 document.body.onload = startGame();
 
 function displayCard() {
@@ -158,27 +179,6 @@ function unmatched() {
         openCards=[];
         enable();
     }, 1100);
-}
-
-function clickEvents() {
-    for(var i = 0; i < cards.length; i++) {
-        cards[i].addEventListener("click", displayCard);
-        cards[i].addEventListener("click", cardOpen);
-    }
-
-}
-
-function startTimer() {
-    seconds = 0;
-    minutes = 0;
-    time = setInterval(function() {
-        stopwatch.innerHTML = minutes + " mins " + seconds + " secs";
-        seconds++;
-        if(seconds === 60) {
-            minutes ++;
-            seconds = 0;
-        }   
-    }, 1000);
 }
 
 function stopTimer() {
