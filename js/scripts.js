@@ -102,6 +102,17 @@ function startGame() {
 
 document.body.onload = startGame();
 
+//operates off of count value, so 0-12 moves is 3 stars; 13-18 moves is 2 stars; 19 or more moves is 1 star
+function starRating() {
+    if(count >= 26 && count <= 36) {
+        stars[0].style.display = "none";
+        currentStars = 2;
+    } else if (count >= 38) {
+        stars[1].style.display = "none";
+        currentStars = 1;
+    } 
+}
+
 function displayCard() {
     this.classList.remove("unopen");
 	this.classList.add("open", "disabled");
@@ -114,31 +125,11 @@ function displayCard() {
     starRating();
 }
 
-function cardOpen() {
-    openCards.push(this);
-    let length = openCards.length;
-    if(length === 2) {
-        disable();
-        if(openCards[0].type === openCards[1].type) {
-            console.log("match");
-            matched();
-        } else {
-            console.log("no match");
-            unmatched();
-        }
-
-    }
-}
-
-//operates off of count value, so 0-12 moves is 3 stars; 13-18 moves is 2 stars; 19 or more moves is 1 star
-function starRating() {
-    if(count >= 26 && count <= 36) {
-        stars[0].style.display = "none";
-        currentStars = 2;
-    } else if (count >= 38) {
-        stars[1].style.display = "none";
-        currentStars = 1;
-    } 
+function stopTimer() {
+    finishTime = stopwatch.innerHTML;
+    console.log(finishTime);
+    //clearInterval stops the time interval
+    clearInterval(time);
 }
 
 function congratulations() {
@@ -181,12 +172,24 @@ function unmatched() {
     }, 1100);
 }
 
-function stopTimer() {
-    finishTime = stopwatch.innerHTML;
-    console.log(finishTime);
-    //clearInterval stops the time interval
-    clearInterval(time);
+function cardOpen() {
+    openCards.push(this);
+    let length = openCards.length;
+    if(length === 2) {
+        disable();
+        if(openCards[0].type === openCards[1].type) {
+            console.log("match");
+            matched();
+        } else {
+            console.log("no match");
+            unmatched();
+        }
+
+    }
 }
+
+
+
 
 
 
